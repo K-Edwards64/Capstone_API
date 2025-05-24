@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 from datetime import datetime
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
@@ -6,6 +7,8 @@ from typing import List, Optional
 from sqlalchemy import create_engine
 from databases import Database
 import asyncpg
+
+load_dotenv()
 
 # --- Models must be defined first ---
 class PlateModel(BaseModel):
