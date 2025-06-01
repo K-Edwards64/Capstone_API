@@ -51,6 +51,18 @@ class PlateCreate(BaseModel):
 # --- Application Setup ---
 app = FastAPI()
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 def get_oracle_cloud_db_url():
     return (
         f"postgresql+asyncpg://"
